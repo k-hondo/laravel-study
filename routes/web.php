@@ -7,3 +7,7 @@ Route::get('/', function () {
 });
 
 Route::get('/hello-world', fn() => view('hello_world'));
+Route::get('/hello', fn() => view('hello', [
+    'name' => '山田',
+    'course' => 'Laravel'
+]));
