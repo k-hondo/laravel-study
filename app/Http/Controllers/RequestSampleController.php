@@ -22,4 +22,20 @@ class RequestSampleController extends Controller
         $keyword = $request->input('keyword', '未設定');
         return 'キーワードは「' . $keyword . '」です';
     }
+
+    /**
+     * ユーザープロフィールを表示する
+     */
+    public function profile($id)
+    {
+        return 'ID: ' . $id;
+    }
+
+    /**
+     * 商品アーカイブを表示する
+     */
+    public function productsArchive(Request $request, $category, $year)
+    {
+        return 'category: ' . $category . '<br>year: ' . $year . '<br>page: ' . $request->input('page', 1);
+    }
 }
