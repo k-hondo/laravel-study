@@ -47,4 +47,23 @@ class RequestSampleController extends Controller
         $url = route('profile', ['id' => 1, 'photos' => 'yes']);
         return 'プロフィールページのURLは: ' . $url;
     }
+
+    public function loginForm()
+    {
+        return view('login');
+    }
+
+    /**
+     * ログイン処理を行う
+     */
+    public function login(Request $request)
+    {
+        // ここでは簡単な例として、固定のメールアドレスとパスワードを使用して認証を行います。
+        $email = 'user@example.com';
+        $password = '12345678';
+        if ($request->input('email') === $email && $request->input('password') === $password) {
+            return 'ログイン成功';
+        }
+        return 'ログイン失敗';
+    }
 }
