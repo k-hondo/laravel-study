@@ -38,4 +38,13 @@ class RequestSampleController extends Controller
     {
         return 'category: ' . $category . '<br>year: ' . $year . '<br>page: ' . $request->input('page', 1);
     }
+
+    /**
+     * ルートのURLを生成する
+     */
+    public function routeLink()
+    {
+        $url = route('profile', ['id' => 1, 'photos' => 'yes']);
+        return 'プロフィールページのURLは: ' . $url;
+    }
 }
