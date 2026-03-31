@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UtilityController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\RequestSampleController;
+use App\Http\Controllers\EventController;
 
 // サンプルページ
 Route::get('/hello-world', fn() => view('hello_world'));
@@ -36,3 +37,5 @@ Route::get('/route-link', [RequestSampleController::class, 'routeLink']);
 
 Route::get('/login', [RequestSampleController::class, 'loginForm']);
 Route::post('/login', [RequestSampleController::class, 'login'])->name('login');
+
+Route::resource('/events', EventController::class);
