@@ -52,4 +52,21 @@ class PhotoController extends Controller
         // 削除完了後、アップロード画面にリダイレクト
         return to_route('photos.create')->with('success', '削除しました');
     }
+
+    /**
+     * アップロード画像のダウンロード処理
+     */
+    public function download(string $fileName)
+    {
+        $disk = Storage::disk('public');
+
+        // 拡張子を取得
+        $extension = pathinfo($fileName, PATHINFO_EXTENSION);
+
+        // ダウンロード時のファイル名を生成
+        $downloadName = "アップロード画像.{$extension}";
+
+        // ストレージからファイルをダウンロード
+        return $disk->download("photos/{$fileName}", $downloadName);
+    }
 }
