@@ -23,10 +23,21 @@ class PhotoController extends Controller
     {
         // アップロードされたファイルを保存
         $savedFilePath = $request->file('image')->store('photos', 'public');
-        // ログに保存したファイルのパスを出力
+        $fileName = pathinfo($savedFilePath, PATHINFO_BASENAME);
+        // ログに保存したファイルパス、ファイル名を出力
         Log::debug($savedFilePath);
+        Log::debug($fileName);
 
-        // アップロード完了後、アップロード画面にリダイレクト
-        return to_route('photos.create')->with('success', 'アップロードしました');
+        // アップロード完了後、画像表示画面にリダイレクト
+        return to_route('photos.show', ['photo' => $fileName])->with('success', 'アップロードしました');
+    }
+
+    /**
+     * アップロード画像の表示
+     */
+    public function show(string $fileName)
+    {
+        // 画像表示用のビューを返す
+        return view('photos.show', ['fileName' => $fileName]);
     }
 }
