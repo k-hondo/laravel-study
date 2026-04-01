@@ -17,4 +17,7 @@
         <button type="submit" onclick="return confirm('削除してもよろしいですか？')">削除</button>
     </form>
 
+    {{-- ダウンロードリンク --}}
+    <a href="{{ route('photos.download', ['photo' => $fileName]) }}">ダウンロード</a>
+
 @endsection
