@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('laravel-study.layouts.default')
 
 @section('title', 'ハイアンドロー(結果)')
 @section('content')
@@ -9,5 +9,5 @@
     @else
         <p>ざんねん。。 <br>はずれです</p>
     @endif
-    <a href="{{ route('hi-low') }}">もう一度挑戦する</a>
+    <a href="{{ route('laravel-study.hi-low') }}">もう一度挑戦する</a>
 @endsection

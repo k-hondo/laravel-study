@@ -15,7 +15,7 @@ class GameController extends Controller
         $resultIndex = array_rand($fortunes);
         $result = $fortunes[$resultIndex];
 
-        return view('omikuji', ['result' => $result]);
+        return view('laravel-study.omikuji', ['result' => $result]);
     }
 
     /**
@@ -38,6 +38,6 @@ class GameController extends Controller
         }
         $wonCount = count(array_filter($results, fn($result) => $result));
 
-        return view('monty-hall', ['results' => $results, 'wonCount' => $wonCount]);
+        return view('laravel-study.monty-hall', ['results' => $results, 'wonCount' => $wonCount]);
     }
 }
