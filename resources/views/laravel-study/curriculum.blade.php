@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('laravel-study.layouts.default')
 
 @section('title', 'カリキュラムについて')
 @section('content')

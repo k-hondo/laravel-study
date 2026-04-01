@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <title>@yield('title', 'Laravel学習')</title>
@@ -18,38 +19,45 @@
             justify-content: space-between;
             padding: 10px 0;
         }
+
         nav ul {
             display: flex;
             padding: 0;
             list-style: none;
         }
+
         nav li {
             margin-right: 10px;
         }
+
         a {
             color: #0f83fd;
         }
+
         img {
             width: 100%;
         }
+
         main {
             grid-area: contents;
             padding: 10px 0;
         }
+
         footer {
             grid-area: footer;
             text-align: center;
         }
     </style>
 </head>
+
 <body>
     <header>
-        <h1>Laravel9学習</h1>
+        <h1>Laravel12学習</h1>
         <nav>
             <ul>
-                <li><a href="/">トップ</a></li>
-                <li><a href="/curriculum">カリキュラム</a></li>
-                <li><a href="/events">イベント</a></li>
+                <li><a href="{{ route('laravel-study.index') }}">トップ</a></li>
+                <li><a href="{{ route('laravel-study.curriculum') }}">カリキュラム</a></li>
+                <li><a href="{{ route('laravel-study.events.create') }}">イベント</a></li>
                 <li><a href="#">サービス</a></li>
                 <li><a href="#">お問い合わせ</a></li>
             </ul>
@@ -65,4 +73,5 @@
         <p>&copy; 2023 ●●▲▲</p>
     </footer>
 </body>
+
 </html>

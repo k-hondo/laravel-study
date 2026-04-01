@@ -1,9 +1,9 @@
-@extends('layouts.default')
+@extends('laravel-study.layouts.default')
 
 @section('title', '世界の時間')
 @section('content')
     <dl>
-        @foreach($times as $city => $time)
+        @foreach ($times as $city => $time)
             <dt>{{ $city }}</dt>
             <dd>{{ $time }}</dd>
         @endforeach

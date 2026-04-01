@@ -1,8 +1,8 @@
-@extends('layouts.default')
+@extends('laravel-study.layouts.default')
 
 @section('title', 'ログイン')
 @section('content')
-    <form action="{{ route('login') }}" method="POST">
+    <form action="{{ route('laravel-study.login') }}" method="POST">
         @csrf
         <div><label>メールアドレス: <input type="email" name="email"></label></div>
         <div><label>パスワード: <input type="password" name="password"></label></div>
