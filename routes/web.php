@@ -6,6 +6,7 @@ use App\Http\Controllers\GameController;
 use App\Http\Controllers\RequestSampleController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HiLowController;
+use App\Http\Controllers\PhotoController;
 
 // サンプルページ
 Route::get('/hello-world', fn() => view('hello_world'));
@@ -44,3 +45,6 @@ Route::resource('/events', EventController::class)->only(['create', 'store']);
 // ハイローゲーム
 Route::get('/hi-low', [HiLowController::class, 'index'])->name('hi-low');
 Route::post('/hi-low', [HiLowController::class, 'result']);
+
+// ファイル管理
+Route::resource('/photos', PhotoController::class)->only(['create', 'store']);
