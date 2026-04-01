@@ -11,7 +11,7 @@ class RequestSampleController extends Controller
      */
     public function form()
     {
-        return view('form');
+        return view('laravel-study.form');
     }
 
     /**
@@ -20,7 +20,7 @@ class RequestSampleController extends Controller
     public function queryStrings(Request $request)
     {
         $keyword = $request->input('keyword', '未設定');
-        return 'キーワードは「' . $keyword . '」です';
+        return "キーワードは「{$keyword}」です";
     }
 
     /**
@@ -28,7 +28,7 @@ class RequestSampleController extends Controller
      */
     public function profile($id)
     {
-        return 'ID: ' . $id;
+        return "ID: {$id}";
     }
 
     /**
@@ -36,7 +36,7 @@ class RequestSampleController extends Controller
      */
     public function productsArchive(Request $request, $category, $year)
     {
-        return 'category: ' . $category . '<br>year: ' . $year . '<br>page: ' . $request->input('page', 1);
+        return "category: {$category}<br>year: {$year}<br>page: {$request->input('page', 1)}";
     }
 
     /**
@@ -44,13 +44,13 @@ class RequestSampleController extends Controller
      */
     public function routeLink()
     {
-        $url = route('profile', ['id' => 1, 'photos' => 'yes']);
-        return 'プロフィールページのURLは: ' . $url;
+        $url = route('laravel-study.profile', ['id' => 1, 'photos' => 'yes']);
+        return "プロフィールページのURLは: {$url}";
     }
 
     public function loginForm()
     {
-        return view('login');
+        return view('laravel-study.login');
     }
 
     /**

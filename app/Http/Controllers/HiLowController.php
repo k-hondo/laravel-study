@@ -12,7 +12,7 @@ class HiLowController extends Controller
         // セッションに保存
         session(['dealersNumber' => $dealersNumber]);
 
-        return view('hi-low.index', ['dealersNumber' => $dealersNumber]);
+        return view('laravel-study.hi-low.index', ['dealersNumber' => $dealersNumber]);
     }
 
     public function result(Request $request)
@@ -26,7 +26,7 @@ class HiLowController extends Controller
         $isHigh = $playersNumber > $dealersNumber;
         // 予想が当たったかの判定
         $isCorrect = ($isHigh && $request->input('guess') === 'high') || (!$isHigh && $request->input('guess') === 'low');
-        return view('hi-low.result', [
+        return view('laravel-study.hi-low.result', [
             'dealersNumber' => $dealersNumber,
             'playersNumber' => $playersNumber,
             'isCorrect' => $isCorrect,

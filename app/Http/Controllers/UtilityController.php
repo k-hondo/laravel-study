@@ -22,6 +22,6 @@ class UtilityController extends Controller
         ];
         $times = array_map(fn($diff) => now()->addHours($diff), $timeDiff);
 
-        return view('world-time', ['times' => $times]);
+        return view('laravel-study.world-time', ['times' => $times]);
     }
 }

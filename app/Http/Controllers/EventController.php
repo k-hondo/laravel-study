@@ -12,7 +12,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('events.create');
+        return view('laravel-study.events.create');
     }
 
     /**
@@ -23,6 +23,6 @@ class EventController extends Controller
         $title = $request->input('title');
         // DBへの保存処理は今後実装予定のため、現時点ではリクエスト内容をログに出力するのみとする
         Log::debug('イベント名: ' . $title);
-        return to_route('events.create')->with('success', $title . 'を登録しました');
+        return to_route('laravel-study.events.create')->with('success', $title . 'を登録しました');
     }
 }

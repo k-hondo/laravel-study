@@ -14,7 +14,7 @@ class PhotoController extends Controller
     public function create()
     {
         // アップロード画面を表示
-        return view('photos.create');
+        return view('laravel-study.photos.create');
     }
 
     /**
@@ -30,7 +30,7 @@ class PhotoController extends Controller
         Log::debug($fileName);
 
         // アップロード完了後、画像表示画面にリダイレクト
-        return to_route('photos.show', ['photo' => $fileName])->with('success', 'アップロードしました');
+        return to_route('laravel-study.photos.show', ['photo' => $fileName])->with('success', 'アップロードしました');
     }
 
     /**
@@ -39,7 +39,7 @@ class PhotoController extends Controller
     public function show(string $fileName)
     {
         // 画像表示用のビューを返す
-        return view('photos.show', ['fileName' => $fileName]);
+        return view('laravel-study.photos.show', ['fileName' => $fileName]);
     }
 
     /**
@@ -50,7 +50,7 @@ class PhotoController extends Controller
         // ストレージからファイルを削除
         Storage::disk('public')->delete("photos/{$fileName}");
         // 削除完了後、アップロード画面にリダイレクト
-        return to_route('photos.create')->with('success', '削除しました');
+        return to_route('laravel-study.photos.create')->with('success', '削除しました');
     }
 
     /**
