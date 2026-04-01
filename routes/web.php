@@ -7,6 +7,7 @@ use App\Http\Controllers\RequestSampleController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HiLowController;
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\ContactController;
 
 
 // ////////////////////////////////////////////////
@@ -16,6 +17,10 @@ use App\Http\Controllers\PhotoController;
 // ねこカフェサイト トップページ
 Route::view('/', 'index')->name('index');
 
+// お問い合わせ
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact', [ContactController::class, 'sendMail']);
+Route::get('/contact/complete', [ContactController::class, 'complete'])->name('contact.complete');
 
 
 
