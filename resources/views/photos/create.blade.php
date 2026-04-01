@@ -2,6 +2,11 @@
 
 @section('title', '画像アップロード')
 @section('content')
+    {{-- メッセージを表示 --}}
+    @if (session()->has('success'))
+        <p>{{ session()->get('success') }}</p>
+    @endif
+
     {{-- 画像アップロードフォーム --}}
     <form action="{{ route('photos.store') }}" method="POST" enctype="multipart/form-data">
         @csrf

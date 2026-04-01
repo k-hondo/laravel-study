@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class PhotoController extends Controller
 {
@@ -39,5 +40,16 @@ class PhotoController extends Controller
     {
         // 画像表示用のビューを返す
         return view('photos.show', ['fileName' => $fileName]);
+    }
+
+    /**
+     * アップロード画像の削除処理
+     */
+    public function destroy(string $fileName)
+    {
+        // ストレージからファイルを削除
+        Storage::disk('public')->delete("photos/{$fileName}");
+        // 削除完了後、アップロード画面にリダイレクト
+        return to_route('photos.create')->with('success', '削除しました');
     }
 }
