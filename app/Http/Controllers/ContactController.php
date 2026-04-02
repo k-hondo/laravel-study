@@ -8,6 +8,9 @@ use App\Mail\ContactAdminMail;
 
 class ContactController extends Controller
 {
+    // 管理者に送信するメールアドレス
+    private const ADMIN_EMAIL = 'admin@example.com';
+
     /**
      * お問い合わせページを表示する
      */
@@ -26,7 +29,7 @@ class ContactController extends Controller
 
         // これ以降の行は入力エラーがなかった場合のみ実行されます
         // メール送信
-        Mail::to('admin@example.com')->send(new ContactAdminMail());
+        Mail::to(self::ADMIN_EMAIL)->send(new ContactAdminMail($validated));
         // 完了ページへリダイレクト
         return to_route('contact.complete');
     }
