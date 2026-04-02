@@ -18,13 +18,15 @@
             </p>
             <div class="mt-8">
                 <!-- ▼▼▼▼エラーメッセージ▼▼▼▼　-->
-                <div class="mb-8 py-4 px-6 border border-pink-300 bg-pink-50 rounded">
-                    <ul>
-                        <li class="text-pink-400">お名前は、必ず指定してください。</li>
-                        <li class="text-pink-400">電話番号は、必ず指定してください。</li>
-                        <li class="text-pink-400">お問い合わせ内容は、必ず指定してください。</li>
-                    </ul>
-                </div>
+                @if ($errors->any())
+                    <div class="mb-8 py-4 px-6 border border-pink-300 bg-pink-50 rounded">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li class="text-pink-400">{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <!-- ▲▲▲▲エラーメッセージ▲▲▲▲　-->
 
                 <form action="{{ route('contact') }}" method="POST"">
@@ -35,6 +37,9 @@
                         <input id="name"
                             class="w-full p-4 text-xs leading-none bg-blueGray-50 rounded outline-none border"
                             type="text" placeholder="例）田中太郎" name="name">
+                        @error('name')
+                            <p class="text-red-400">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="mb-4">
                         <label for=name_kana class="block text-left p-1 my-1 font-medium">お名前（フリガナ）<span
@@ -42,12 +47,18 @@
                         <input id="name_kana"
                             class="w-full p-4 text-xs leading-none bg-blueGray-50 rounded outline-none border"
                             type="text" placeholder="例）タナカタロウ" name="name_kana">
+                        @error('name_kana')
+                            <p class="text-red-400">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="mb-4">
                         <label for="phone" class="block text-left p-1 my-1 font-medium">電話番号</label>
                         <input id="phone"
                             class="w-full p-4 text-xs leading-none bg-blueGray-50 rounded outline-none border"
                             type="text" placeholder="例）0312345678" name="phone">
+                        @error('phone')
+                            <p class="text-red-400">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="mb-4">
                         <label for="email" class="block text-left p-1 my-1 font-medium">メールアドレス<span
@@ -55,6 +66,9 @@
                         <input id="email"
                             class="w-full p-4 text-xs leading-none bg-blueGray-50 rounded outline-none border"
                             type="email" placeholder="info@example.com" name="email">
+                        @error('email')
+                            <p class="text-red-400">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="mb-4">
                         <label for="body" class="block text-left p-1 my-1 font-medium">お問い合わせ内容<span
@@ -62,6 +76,9 @@
                         <textarea id="body"
                             class="w-full h-24 p-4 text-xs leading-none resize-none bg-blueGray-50 rounded outline-none border" type="text"
                             placeholder="ご自由にご記入ください" name="body"></textarea>
+                        @error('body')
+                            <p class="text-red-400">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="text-center">
                         <p>送信される際は、<a href="#" class="text-blue-600 hover:underline">個人情報保護方針</a>に同意したものとします。</p>
