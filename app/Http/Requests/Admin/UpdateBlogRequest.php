@@ -34,6 +34,20 @@ class UpdateBlogRequest extends FormRequest
                 'dimensions:min_width=300,min_height=300,max_width=1200,max_height=1200', // 画像の解像度が300px * 300px ~ 1200px * 1200px
             ],
             'body' => ['required', 'max:20000'],
+            'cats.*' => ['distinct', 'exists:cats,id'], // catsの各要素はcatsテーブルのidである
+        ];
+    }
+
+    /**
+     * 属性名
+     *
+     * @return array<string, string>
+     */
+    public function attributes()
+    {
+        return [
+            'category_id' => 'カテゴリ',
+            'cats.*' => '登場するねこ',
         ];
     }
 }
