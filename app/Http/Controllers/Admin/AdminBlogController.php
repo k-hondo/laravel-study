@@ -14,7 +14,10 @@ class AdminBlogController extends Controller
      */
     public function index()
     {
-        return view('admin.blogs.index');
+        $blogs = Blog::all();
+        return view('admin.blogs.index', [
+            'blogs' => $blogs,
+        ]);
     }
 
     /**
@@ -50,11 +53,14 @@ class AdminBlogController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * 指定したIDのブログ編集画面
      */
     public function edit(string $id)
     {
-        //
+        $blog = Blog::findOrFail($id);
+        return view('admin.blogs.edit', [
+            'blog' => $blog,
+        ]);
     }
 
     /**
