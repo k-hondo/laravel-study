@@ -28,7 +28,7 @@
                                     <img class="w-12 h-12 mr-4 object-cover rounded-md"
                                         src="{{ asset('storage/' . $blog->image) }}" alt="">
                                     <p class="font-medium"><a
-                                            href="{{ route('admin.blogs.edit', ['blog' => $blog->id]) }}">{{ $blog->title }}</a>
+                                            href="{{ route('admin.blogs.edit', ['blog' => $blog]) }}">{{ $blog->title }}</a>
                                     </p>
                                 </td>
                                 <td class="font-medium">{{ $blog->category }}</td>
@@ -37,7 +37,7 @@
                                 <td>
                                     <div class="flex">
                                         {{-- 編集ボタン --}}
-                                        <a class="mr-2" href="{{ route('admin.blogs.edit', ['blog' => $blog->id]) }}">
+                                        <a class="mr-2" href="{{ route('admin.blogs.edit', ['blog' => $blog]) }}">
                                             <svg width="18" height="18" viewbox="0 0 18 18" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -46,8 +46,8 @@
                                             </svg>
                                         </a>
                                         {{-- 削除ボタン --}}
-                                        <form action="{{ route('admin.blogs.destroy', ['blog' => $blog->id]) }}"
-                                            method="post" onsubmit="return confirm('本当に削除しますか？')">
+                                        <form action="{{ route('admin.blogs.destroy', ['blog' => $blog]) }}" method="post"
+                                            onsubmit="return confirm('本当に削除しますか？')">
                                             @csrf
                                             @method('DELETE')
                                             <button>
