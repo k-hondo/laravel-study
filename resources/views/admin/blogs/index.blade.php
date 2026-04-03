@@ -31,7 +31,7 @@
                                             href="{{ route('admin.blogs.edit', ['blog' => $blog]) }}">{{ $blog->title }}</a>
                                     </p>
                                 </td>
-                                <td class="font-medium">{{ $blog->category }}</td>
+                                <td class="font-medium">{{ $blog->category->name }}</td>
                                 <td class="font-medium">{{ $blog->author }}</td>
                                 <td>{{ $blog->updated_at->format('Y.m.d H:i:s') }}</td>
                                 <td>
