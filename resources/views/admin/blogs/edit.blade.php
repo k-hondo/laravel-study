@@ -56,11 +56,13 @@
                             <div class="flex">
                                 <select id="category"
                                     class="appearance-none block pl-4 pr-8 py-3 mb-2 text-sm bg-white border rounded"
-                                    name="">
-                                    <option>Option 1</option>
-                                    <option>Option 2</option>
-                                    <option>Option 3</option>
-                                    <option>Option 4</option>
+                                    name="category_id">
+                                    <option value="">選択してください</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}" @selected(old('category_id', $blog->category->id) == $category->id)>
+                                            {{ $category->name }}
+                                        </option>
+                                    @endforeach
                                 </select>
                                 <div
                                     class="pointer-events-none transform -translate-x-full flex items-center px-2 text-gray-500">

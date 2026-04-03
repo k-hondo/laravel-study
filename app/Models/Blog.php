@@ -11,4 +11,12 @@ class Blog extends Model
         'image',
         'body',
     ];
+
+    /**
+     * カテゴリーとのリレーション
+     */
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
