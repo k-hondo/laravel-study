@@ -19,4 +19,12 @@ class Blog extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    /**
+     * 猫とのリレーション
+     */
+    public function cats()
+    {
+        return $this->belongsToMany(Cat::class)->withTimestamps();
+    }
 }
