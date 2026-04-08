@@ -7,7 +7,9 @@ use App\Http\Controllers\RequestSampleController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HiLowController;
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\LandingController;
 use App\Http\Controllers\CatController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\AdminCatController;
 use App\Http\Controllers\Admin\AdminBlogController;
@@ -19,10 +21,13 @@ use App\Http\Controllers\Admin\AuthController;
 // ////////////////////////////////////////////////
 
 // ねこカフェサイト トップページ
-Route::view('/', 'index')->name('index');
+Route::get('/', [LandingController::class, 'index'])->name('index');
 
 // ねこちゃんたち
 Route::resource('/cats', CatController::class)->only(['index']);
+
+// ブログ
+Route::resource('/blogs', BlogController::class)->only(['index', 'show']);
 
 // お問い合わせ
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');

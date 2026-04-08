@@ -23,7 +23,8 @@
                     <li><a class="text-sm text-blueGray-400 hover:text-blueGray-500" href="#">設備</a></li>
                     <li><a class="text-sm text-blueGray-400 hover:text-blueGray-500"
                             href="{{ route('cats.index') }}">ねこちゃんたち</a></li>
-                    <li><a class="text-sm text-blueGray-400 hover:text-blueGray-500" href="/blogs">ブログ</a></li>
+                    <li><a class="text-sm text-blueGray-400 hover:text-blueGray-500"
+                            href="{{ route('blogs.index') }}">ブログ</a></li>
                     <li><a class="text-sm text-blueGray-400 hover:text-blueGray-500" href="#">メニュー</a></li>
                     <li><a class="text-sm text-blueGray-400 hover:text-blueGray-500" href="#">よくあるご質問</a></li>
                 </ul>
@@ -57,10 +58,10 @@
                 <li class="ml-6"><a href="/" class="hover:underline">ホーム</a></li>
                 <li class="ml-6"><a href="#" class="hover:underline">設備</a></li>
                 <li class="ml-6"><a href="{{ route('cats.index') }}" class="hover:underline">ねこちゃんたち</a></li>
-                <li class="ml-6"><a href="/blogs" class="hover:underline">ブログ</a></li>
+                <li class="ml-6"><a href="{{ route('blogs.index') }}" class="hover:underline">ブログ</a></li>
                 <li class="ml-6"><a href="/#access" class="hover:underline">アクセス</a></li>
                 <li class="ml-6"><a href="#" class="hover:underline">よくあるご質問</a></li>
-                <li class="ml-6"><a href="/contact" class="hover:underline">お問い合わせ</a></li>
+                <li class="ml-6"><a href="{{ route('contact') }}" class="hover:underline">お問い合わせ</a></li>
                 <li class="ml-6"><a href="#" class="hover:underline">プライバシーポリシー</a></li>
             </ul>
         </div>
