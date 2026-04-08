@@ -3,63 +3,46 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Category;
+use App\Models\Cat;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * ブログの一覧を表示する
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $blogs = Blog::latest('updated_at')
+            ->when(
+                $request->category,
+                fn ($q) =>
+                $q->where('category_id', $request->category)
+            )
+            ->when(
+                $request->cat,
+                fn ($q) =>
+                $q->whereHas(
+                    'cats',
+                    fn ($q2) =>
+                    $q2->where('cats.id', $request->cat)
+                )
+            )
+            ->paginate(12)
+            ->withQueryString();
+
+        $categories = Category::all();
+        $cats = Cat::all();
+
+        return view('blogs.index', compact('blogs', 'categories', 'cats'));
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
+     * ブログの詳細を表示する
      */
     public function show(Blog $blog)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Blog $blog)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Blog $blog)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Blog $blog)
-    {
-        //
+        return view('blogs.detail', compact('blog'));
     }
 }
