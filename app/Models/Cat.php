@@ -9,6 +9,18 @@ use Carbon\Carbon;
 class Cat extends Model
 {
     /**
+     * ホワイトリスト
+     */
+    protected $fillable = [
+        'name',
+        'breed',
+        'gender',
+        'date_of_birth',
+        'image',
+        'introduction',
+    ];
+
+    /**
      * キャストの定義
      */
     protected $casts = [

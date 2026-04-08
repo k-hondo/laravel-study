@@ -9,6 +9,7 @@ use App\Http\Controllers\HiLowController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\CatController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Admin\AdminCatController;
 use App\Http\Controllers\Admin\AdminBlogController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AuthController;
@@ -35,6 +36,8 @@ Route::prefix('/admin')
         // ログイン時のみアクセス可能なルート
         Route::middleware('auth')
             ->group(function () {
+                // ねこちゃん管理
+                Route::resource('/cats', AdminCatController::class)->except(['show']);
                 // ブログ管理
                 Route::resource('/blogs', AdminBlogController::class)->except(['show']);
 
