@@ -20,10 +20,11 @@
             <nav class="flex items-center justify-between py-6">
                 <a class="text-3xl font-semibold leading-none" href="/">ねこカフェららべる</a>
                 <ul class="hidden lg:flex ml-12 mr-auto space-x-12">
-                    <li><a class="text-sm text-blueGray-400 hover:text-blueGray-500" href="#">設備</a></li>
-                    <li><a class="text-sm text-blueGray-400 hover:text-blueGray-500"
+                    <li><a class="text-sm {{ request()->routeIs('facilities') ? 'text-blue-500 font-bold' : 'text-blueGray-400' }} hover:text-blueGray-500"
+                            href="{{ route('facilities') }}">設備</a></li>
+                    <li><a class="text-sm {{ request()->routeIs('cats.index') ? 'text-blue-500 font-bold' : 'text-blueGray-400' }} hover:text-blueGray-500"
                             href="{{ route('cats.index') }}">ねこちゃんたち</a></li>
-                    <li><a class="text-sm text-blueGray-400 hover:text-blueGray-500"
+                    <li><a class="text-sm {{ request()->routeIs('blogs.index') ? 'text-blue-500 font-bold' : 'text-blueGray-400' }} hover:text-blueGray-500"
                             href="{{ route('blogs.index') }}">ブログ</a></li>
                     <li><a class="text-sm text-blueGray-400 hover:text-blueGray-500" href="#">メニュー</a></li>
                     <li><a class="text-sm text-blueGray-400 hover:text-blueGray-500" href="#">よくあるご質問</a></li>

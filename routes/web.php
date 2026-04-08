@@ -23,6 +23,9 @@ use App\Http\Controllers\Admin\AuthController;
 // ねこカフェサイト トップページ
 Route::get('/', [LandingController::class, 'index'])->name('index');
 
+// 設備
+Route::get('/facilities', fn () => view('facilities.index'))->name('facilities');
+
 // ねこちゃんたち
 Route::resource('/cats', CatController::class)->only(['index']);
 
