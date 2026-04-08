@@ -17,6 +17,7 @@
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^3.7",
         "fakerphp/faker": "^1.23",
+        "friendsofphp/php-cs-fixer": "^3.94",
         "laravel-lang/lang": "^15.29",
         "laravel/pail": "^1.2.5",
         "laravel/pint": "^1.29",

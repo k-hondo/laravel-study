@@ -7,11 +7,12 @@ use App\Http\Controllers\RequestSampleController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HiLowController;
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\CatController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Admin\AdminCatController;
 use App\Http\Controllers\Admin\AdminBlogController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AuthController;
-
 
 // ////////////////////////////////////////////////
 // ねこカフェサイトのルーティング
@@ -19,6 +20,9 @@ use App\Http\Controllers\Admin\AuthController;
 
 // ねこカフェサイト トップページ
 Route::view('/', 'index')->name('index');
+
+// ねこちゃんたち
+Route::resource('/cats', CatController::class)->only(['index']);
 
 // お問い合わせ
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
@@ -32,6 +36,8 @@ Route::prefix('/admin')
         // ログイン時のみアクセス可能なルート
         Route::middleware('auth')
             ->group(function () {
+                // ねこちゃん管理
+                Route::resource('/cats', AdminCatController::class)->except(['show']);
                 // ブログ管理
                 Route::resource('/blogs', AdminBlogController::class)->except(['show']);
 
@@ -63,17 +69,17 @@ Route::prefix('/admin')
 // ////////////////////////////////////////////////
 
 // Laravel学習 トップページ
-Route::get('/laravel-study', fn() => view('laravel-study.index'))->name('laravel-study.index');
+Route::get('/laravel-study', fn () => view('laravel-study.index'))->name('laravel-study.index');
 
 // サンプルページ
-Route::get('/laravel-study/hello-world', fn() => view('laravel-study.hello_world'));
-Route::get('/laravel-study/hello', fn() => view('laravel-study.hello', [
+Route::get('/laravel-study/hello-world', fn () => view('laravel-study.hello_world'));
+Route::get('/laravel-study/hello', fn () => view('laravel-study.hello', [
     'name' => '山田',
     'course' => 'Laravel',
 ]));
 
 // カリキュラムページ
-Route::get('/laravel-study/curriculum', fn() => view('laravel-study.curriculum'))->name('laravel-study.curriculum');
+Route::get('/laravel-study/curriculum', fn () => view('laravel-study.curriculum'))->name('laravel-study.curriculum');
 
 // 世界の時間
 Route::get('/laravel-study/world-time', [UtilityController::class, 'worldTime'])->name('laravel-study.world-time');
