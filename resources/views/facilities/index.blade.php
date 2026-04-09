@@ -1,12 +1,13 @@
 @extends('layouts.default')
-@section('title', '設備')
+@section('title', config('page_titles.facilities'))
 
 @section('content')
     <section class="bg-gray-100 pt-2">
         <div class="container mx-auto">
             <p class="text-left px-4 pt-2 text-gray-400"><a href="{{ route('index') }}"
-                    class="text-blue-600 hover:underline">ホーム</a><span class="px-2">&gt;</span>設備</p>
-            <p class="text-center pt-10 text-2xl">設備</p>
+                    class="text-blue-600 hover:underline">{{ config('page_titles.home') }}</a><span
+                    class="px-2">&gt;</span>{{ config('page_titles.facilities') }}</p>
+            <p class="text-center pt-10 text-2xl">{{ config('page_titles.facilities') }}</p>
             <h1 class="mt-2 text-4xl font-bold font-heading text-center h-32">ねこちゃんと過ごす、心ほどける癒しの空間をご用意しています</h1>
         </div>
     </section>
