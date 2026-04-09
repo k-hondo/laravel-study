@@ -23,11 +23,20 @@ use App\Http\Controllers\Admin\AuthController;
 // ねこカフェサイト トップページ
 Route::get('/', [LandingController::class, 'index'])->name('index');
 
+// 設備
+Route::get('/facilities', fn () => view('facilities.index'))->name('facilities');
+
 // ねこちゃんたち
 Route::resource('/cats', CatController::class)->only(['index']);
 
 // ブログ
 Route::resource('/blogs', BlogController::class)->only(['index', 'show']);
+
+// メニュー
+Route::get('/menu', fn () => view('menu.index'))->name('menu');
+
+// よくあるご質問
+Route::get('/faq', fn () => view('faq.index'))->name('faq');
 
 // お問い合わせ
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');

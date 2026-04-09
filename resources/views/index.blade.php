@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('title', 'トップページ')
+@section('title', config('page_titles.home'))
 
 @section('content')
     <section class="bg-gray-100">
