@@ -2,10 +2,10 @@
 @section('title', 'ねこちゃんたち')
 
 @section('content')
-    <section class="bg-gray-100">
+    <section class="bg-gray-100 pt-2">
         <div class="container mx-auto">
-            <p class="text-left px-4 pt-2"><a href="{{ route('index') }}"
-                    class="text-blue-600 hover:underline">ホーム</a>&gt;ねこちゃんたち</p>
+            <p class="text-left px-4 pt-2 text-gray-400"><a href="{{ route('index') }}"
+                    class="text-blue-600 hover:underline">ホーム</a><span class="px-2">&gt;</span>ねこちゃんたち</p>
             <p class="text-center pt-10 text-2xl">ねこちゃんたち</p>
             <h1 class="mt-2 text-4xl font-bold font-heading text-center h-32">この子達があなたを癒やしてくれます！</h1>
         </div>
