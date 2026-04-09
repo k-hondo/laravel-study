@@ -32,6 +32,12 @@ Route::resource('/cats', CatController::class)->only(['index']);
 // ブログ
 Route::resource('/blogs', BlogController::class)->only(['index', 'show']);
 
+// メニュー
+Route::get('/menu', fn () => view('menu.index'))->name('menu');
+
+// よくあるご質問
+Route::get('/faq', fn () => view('faq.index'))->name('faq');
+
 // お問い合わせ
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'sendMail']);
