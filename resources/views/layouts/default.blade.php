@@ -12,7 +12,7 @@
     <script src="/js/main.js"></script>
 </head>
 
-<body class="antialiased bg-body text-body font-body">
+<body class="antialiased bg-body text-body font-body flex flex-col min-h-screen">
 
     <!-- ▼▼▼▼共通ヘッダー▼▼▼▼　-->
     <header>
@@ -43,7 +43,7 @@
     <!-- ▲▲▲▲共通ヘッダー▲▲▲▲　-->
 
     <!-- ▼▼▼▼ページ毎の個別内容▼▼▼▼　-->
-    <main>
+    <main class="flex-grow">
         @yield('content')
     </main>
     <!-- ▲▲▲▲ページ毎の個別内容▲▲▲▲　-->
