@@ -18,7 +18,7 @@
     <header>
         <div class="container px-4 mx-auto">
             <nav class="flex items-center justify-between py-6">
-                <a class="text-3xl font-semibold leading-none" href="/">ねこカフェららべる</a>
+                <a class="text-3xl font-semibold leading-none" href="{{ route('index') }}">ねこカフェららべる</a>
                 <ul class="hidden lg:flex ml-12 mr-auto space-x-12">
                     <li><a class="text-sm {{ request()->routeIs('facilities') ? 'text-blue-500 font-bold' : 'text-blueGray-400' }} hover:text-blueGray-500"
                             href="{{ route('facilities') }}">設備</a></li>
