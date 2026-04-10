@@ -20,9 +20,6 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # アプリコピー
 COPY . .
 
-# 環境変数ファイルコピー（存在しない場合は無視）
-RUN cp .env.example .env || true
-
 # 依存関係インストール
 RUN composer install --no-dev --optimize-autoloader
 
