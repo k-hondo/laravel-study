@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 
-class BlogSeeder3 extends Seeder
+class BlogSeeder extends Seeder
 {
     public function run()
     {
