@@ -26,6 +26,8 @@ class UserFactory extends Factory
     {
         return [
             'name' => 'テストユーザー',
+            'image' => 'users/default.jpg',
+            'introduction' => 'これはテストユーザーです。',
             'email' => 'test@example.com',
             'email_verified_at' => now(),
             'password' => Hash::make('password'),
