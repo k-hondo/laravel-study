@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\UpdateBlogRequest;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Cat;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class AdminBlogController extends Controller
@@ -45,6 +46,8 @@ class AdminBlogController extends Controller
         $validated = $request->validated();
         // 画像の保存とパスの取得
         $validated['image'] = $request->file('image')->store('blogs', 'public');
+        // ログインユーザのIDをセット
+        $validated['user_id'] = Auth::id();
         // ブログの保存
         Blog::create($validated);
 
@@ -89,6 +92,8 @@ class AdminBlogController extends Controller
             // 変更後の画像をアップロード、保存パスを更新対象データにセット
             $updateData['image'] = $request->file('image')->store('blogs', 'public');
         }
+        // ログインユーザのIDをセット
+        $updateData['user_id'] = Auth::id();
         // リレーションデータの更新
         $blog->category()->associate($updateData['category_id']);
         $blog->cats()->sync($updateData['cats'] ?? []);

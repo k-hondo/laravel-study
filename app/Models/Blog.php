@@ -7,10 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 class Blog extends Model
 {
     protected $fillable = [
+        'user_id',
+        'category_id',
         'title',
         'image',
         'body',
     ];
+
+    /**
+     * ユーザとのリレーション
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     /**
      * カテゴリーとのリレーション
