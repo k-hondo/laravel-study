@@ -94,6 +94,8 @@ class BlogSeeder extends Seeder
                 $blogCatRelations[] = [
                     'blog_id' => $blog['id'],
                     'cat_id' => $cat->id,
+                    'created_at' => $created_at,
+                    'updated_at' => $updated_at,
                 ];
             }
         }
