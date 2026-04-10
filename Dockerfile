@@ -35,4 +35,4 @@ RUN php artisan storage:link || true
 EXPOSE 10000
 
 # 起動(マイグレーションとシーディングも実行)
-CMD php artisan migrate --force && php artisan db:seed --force && php artisan serve --host=0.0.0.0 --port=$PORT
+CMD php artisan migrate:fresh --seed --force && php artisan serve --host=0.0.0.0 --port=$PORT
