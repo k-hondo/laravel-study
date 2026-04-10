@@ -1,12 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UtilityController;
-use App\Http\Controllers\GameController;
-use App\Http\Controllers\RequestSampleController;
-use App\Http\Controllers\EventController;
-use App\Http\Controllers\HiLowController;
-use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\LaravelStudy\UtilityController;
+use App\Http\Controllers\LaravelStudy\GameController;
+use App\Http\Controllers\LaravelStudy\RequestSampleController;
+use App\Http\Controllers\LaravelStudy\EventController;
+use App\Http\Controllers\LaravelStudy\HiLowController;
+use App\Http\Controllers\LaravelStudy\PhotoController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\CatController;
 use App\Http\Controllers\BlogController;

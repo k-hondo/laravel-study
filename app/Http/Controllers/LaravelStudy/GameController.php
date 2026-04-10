@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\LaravelStudy;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class GameController extends Controller
 {
@@ -29,14 +29,14 @@ class GameController extends Controller
             shuffle($options);
 
             $selectedIndex = array_rand($options);
-            $notSelectedIndexes = array_filter($options, fn($index) => $index !== $selectedIndex, ARRAY_FILTER_USE_KEY);
+            $notSelectedIndexes = array_filter($options, fn ($index) => $index !== $selectedIndex, ARRAY_FILTER_USE_KEY);
             $removeIndex = array_search(false, $notSelectedIndexes);
             unset($notSelectedIndexes[$removeIndex]);
 
             $changedIndex = key($notSelectedIndexes);
             $results[] = $options[$changedIndex];
         }
-        $wonCount = count(array_filter($results, fn($result) => $result));
+        $wonCount = count(array_filter($results, fn ($result) => $result));
 
         return view('laravel-study.monty-hall', ['results' => $results, 'wonCount' => $wonCount]);
     }

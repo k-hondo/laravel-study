@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\LaravelStudy;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class UtilityController extends Controller
 {
@@ -20,7 +20,7 @@ class UtilityController extends Controller
             'ロサンゼルス' => -17,
             'ハワイ' => -19,
         ];
-        $times = array_map(fn($diff) => now()->addHours($diff), $timeDiff);
+        $times = array_map(fn ($diff) => now()->addHours($diff), $timeDiff);
 
         return view('laravel-study.world-time', ['times' => $times]);
     }
