@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,18 +18,19 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-
-        User::updateOrCreate(
-            ['email' => 'test@example.com'],
-            [
-                'name' => 'Test User',
-                'password' => bcrypt('password'),
-                'image' => 'users/default.jpg',
-                'introduction' => 'これはテストユーザーです。',
-                'email_verified_at' => now(),
-                'remember_token' => null,
-            ]
-        );
+        if (Schema::hasTable('users')) {
+            User::updateOrCreate(
+                ['email' => 'test@example.com'],
+                [
+                    'name' => 'Test User',
+                    'password' => bcrypt('password'),
+                    'image' => 'users/default.jpg',
+                    'introduction' => 'これはテストユーザーです。',
+                    'email_verified_at' => now(),
+                    'remember_token' => null,
+                ]
+            );
+        }
 
         $this->call([
             CatSeeder::class,
