@@ -12,8 +12,9 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware
-            ->redirectGuestsTo(fn() => route('admin.login'))
-            ->redirectUsersTo(fn() => route('admin.blogs.index'));
+            ->redirectGuestsTo(fn () => route('admin.login'))
+            ->redirectUsersTo(fn () => route('admin.blogs.index'))
+            ->trustProxies(at: '*');
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
