@@ -30,5 +30,12 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
+        $this->call([
+            CatSeeder::class,
+            CategorySeeder::class,
+            BlogSeeder::class,
+            UserSeeder::class,
+        ]);
+
     }
 }
