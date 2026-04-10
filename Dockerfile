@@ -5,7 +5,7 @@ WORKDIR /app
 
 # 必要パッケージ
 RUN apt-get update && apt-get install -y \
-    git unzip libzip-dev zip libpq-dev \
+    git unzip libzip-dev zip libpq-dev libonig-dev \
     && docker-php-ext-install \
         pdo \
         pdo_mysql \
