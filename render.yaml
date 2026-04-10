@@ -15,7 +15,7 @@ services:
         value: production
 
       - key: APP_KEY
-        sync: base64:9mK/6Jde0hYlrSOYeL2Bwi2eQUxM2QlbWL/r+4vqoYY=
+        sync: false
 
       - key: APP_DEBUG
         value: false
