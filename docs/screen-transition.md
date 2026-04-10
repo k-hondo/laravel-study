@@ -1,3 +1,7 @@
+# 画面遷移図
+
+## ねこカフェサイト フロントページ
+
 ```mermaid
 flowchart TD
 
@@ -5,23 +9,29 @@ flowchart TD
 %% フロント（ねこカフェ）
 %% =========================
 subgraph Front["ねこカフェサイト"]
-    TOP["トップ /"] --> FAC["設備 /facilities"]
-    TOP --> CAT["ねこちゃんたち /cats"]
-    TOP --> BLOG["ブログ一覧 /blogs"]
-    BLOG --> BLOG_DETAIL["ブログ詳細 /blogs/{id}"]
-    TOP --> MENU["メニュー /menu"]
-    TOP --> FAQ["よくあるご質問 /faq"]
-    TOP --> CONTACT["お問い合わせ /contact"]
+    TOP["トップ /"] --> FAC["設備<br>/facilities"]
+    TOP --> CAT["ねこちゃんたち<br>/cats"]
+    TOP --> BLOG["ブログ一覧<br>/blogs"]
+    BLOG --> BLOG_DETAIL["ブログ詳細<br>/blogs/{id}"]
+    TOP --> MENU["メニュー<br>/menu"]
+    TOP --> FAQ["よくあるご質問<br>/faq"]
+    TOP --> CONTACT["お問い合わせ<br>/contact"]
 
-    CONTACT -->|送信| CONTACT_POST["POST /contact"]
-    CONTACT_POST --> CONTACT_DONE["完了 /contact/complete"]
+    CONTACT -->|送信| CONTACT_POST["POST<br>/contact"]
+    CONTACT_POST --> CONTACT_DONE["完了<br>/contact/complete"]
 end
+```
+
+## ねこカフェサイト 管理画面
+
+```mermaid
+flowchart TD
 
 %% =========================
 %% 管理画面（ログイン前）
 %% =========================
 subgraph Guest["管理画面（未ログイン）"]
-    LOGIN["ログイン /admin/login"]
+    LOGIN["ログイン<br>/admin/login"]
 end
 
 %% =========================
@@ -30,21 +40,27 @@ end
 subgraph Admin["管理画面"]
     DASH["ダッシュボード（想定）"]
 
-    DASH --> ADMIN_CAT["ねこ管理 /admin/cats"]
+    DASH --> ADMIN_CAT["ねこ管理<br>/admin/cats"]
     ADMIN_CAT --> CAT_CREATE["作成"]
     ADMIN_CAT --> CAT_EDIT["編集"]
 
-    DASH --> ADMIN_BLOG["ブログ管理 /admin/blogs"]
+    DASH --> ADMIN_BLOG["ブログ管理<br>/admin/blogs"]
     ADMIN_BLOG --> BLOG_CREATE["作成"]
     ADMIN_BLOG --> BLOG_EDIT["編集"]
 
-    DASH --> USER_CREATE["ユーザ作成 /admin/users/create"]
+    DASH --> USER_CREATE["ユーザ作成<br>/admin/users/create"]
 
     DASH --> LOGOUT["ログアウト"]
 end
 
 LOGIN -->|成功| DASH
 LOGOUT --> LOGIN
+```
+
+## Laravel学習
+
+```mermaid
+flowchart TD
 
 %% =========================
 %% Laravel学習
@@ -56,33 +72,33 @@ subgraph Study["Laravel学習機能"]
     HELLO --> HELLO1["/hello-world"]
     HELLO --> HELLO2["/hello"]
 
-    STUDY_TOP --> CURRICULUM["カリキュラム"]
+    STUDY_TOP --> CURRICULUM["カリキュラム<br>/laravel-study/curriculum"]
 
     STUDY_TOP --> UTILITY["ユーティリティ"]
-    UTILITY --> WORLD_TIME["世界時間"]
+    UTILITY --> WORLD_TIME["世界時間<br>/laravel-study/world-time"]
 
     STUDY_TOP --> GAME["ゲーム"]
-    GAME --> OMIKUJI["おみくじ"]
-    GAME --> MONTY["モンティホール"]
-    GAME --> HILOW["ハイロー"]
+    GAME --> OMIKUJI["おみくじ<br>/laravel-study/omikuji"]
+    GAME --> MONTY["モンティホール<br>/laravel-study/monty-hall"]
+    GAME --> HILOW["ハイロー<br>/laravel-study/hi-low"]
     HILOW --> HILOW_RESULT["結果（POST）"]
 
     STUDY_TOP --> REQUEST["リクエスト"]
-    REQUEST --> FORM["フォーム"]
-    REQUEST --> QUERY["クエリ"]
-    REQUEST --> PROFILE["ユーザ詳細"]
-    REQUEST --> PRODUCT["商品アーカイブ"]
-    REQUEST --> ROUTE_LINK["ルートリンク"]
-    REQUEST --> LOGIN_FORM["ログイン"]
+    REQUEST --> FORM["フォーム<br>/laravel-study/form"]
+    REQUEST --> QUERY["クエリ<br>/laravel-study/query-strings"]
+    REQUEST --> PROFILE["ユーザ詳細<br>/laravel-study/users/{id}"]
+    REQUEST --> PRODUCT["商品アーカイブ<br>/laravel-study/products/{category}/{year}"]
+    REQUEST --> ROUTE_LINK["ルートリンク<br>/laravel-study/route-link"]
+    REQUEST --> LOGIN_FORM["ログイン<br>/laravel-study/login"]
     LOGIN_FORM --> LOGIN_EXEC["POSTログイン"]
 
-    STUDY_TOP --> EVENT["イベント作成"]
+    STUDY_TOP --> EVENT["イベント作成<br>/laravel-study/events"]
     EVENT --> EVENT_STORE["POST"]
 
-    STUDY_TOP --> FILE["ファイル管理"]
+    STUDY_TOP --> FILE["ファイル管理<br>/laravel-study/photos"]
     FILE --> PHOTO_CREATE["アップロード"]
+    FILE --> PHOTO_DOWNLOAD["ダウンロード"]
     FILE --> PHOTO_SHOW["表示"]
     FILE --> PHOTO_DELETE["削除"]
-    FILE --> PHOTO_DOWNLOAD["DL"]
 end
 ```
