@@ -85,20 +85,24 @@ subgraph Study["Laravel学習機能"]
 
     STUDY_TOP --> REQUEST["リクエスト"]
     REQUEST --> FORM["フォーム<br>/laravel-study/form"]
-    REQUEST --> QUERY["クエリ<br>/laravel-study/query-strings"]
+    FORM -->|送信| FORM_POST["POST"]
+    FORM_POST --> QUERY["クエリ<br>/laravel-study/query-strings"]
     REQUEST --> PROFILE["ユーザ詳細<br>/laravel-study/users/{id}"]
     REQUEST --> PRODUCT["商品アーカイブ<br>/laravel-study/products/{category}/{year}"]
     REQUEST --> ROUTE_LINK["ルートリンク<br>/laravel-study/route-link"]
     REQUEST --> LOGIN_FORM["ログイン<br>/laravel-study/login"]
-    LOGIN_FORM --> LOGIN_EXEC["POSTログイン"]
+    LOGIN_FORM -->|ログイン| LOGIN_EXEC["POST"]
+    LOGIN_EXEC --> LOGIN_FORM
 
-    STUDY_TOP --> EVENT["イベント作成<br>/laravel-study/events"]
-    EVENT --> EVENT_STORE["POST"]
+    STUDY_TOP --> EVENT["イベント<br>/laravel-study/events/create"]
+    EVENT -->|登録| EVENT_STORE["POST"]
+    EVENT_STORE --> EVENT
 
-    STUDY_TOP --> FILE["ファイル管理<br>/laravel-study/photos"]
-    FILE --> PHOTO_CREATE["アップロード"]
-    FILE --> PHOTO_DOWNLOAD["ダウンロード"]
-    FILE --> PHOTO_SHOW["表示"]
-    FILE --> PHOTO_DELETE["削除"]
+    STUDY_TOP --> FILE["ファイル管理"]
+    FILE --> PHOTO_CREATE["画像アップロード<br>/laravel-study/photos/create"]
+    PHOTO_CREATE -->|アップロード| PHOTO_POST["POST"]
+    PHOTO_POST --> PHOTO_SHOW["アップロード画像の表示"]
+    PHOTO_SHOW --> PHOTO_DOWNLOAD["ダウンロード"]
+    PHOTO_SHOW --> PHOTO_DELETE["削除"]
 end
 ```
