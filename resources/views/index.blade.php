@@ -61,7 +61,8 @@
         </div>
     </section>
 
-    <section class="mt-24 container mx-auto">
+    {{-- 未実装のため、コメントアウト --}}
+    {{-- <section class="mt-24 container mx-auto">
         <p class="text-center text-2xl">お知らせ</p>
         <h2 class="mt-2 font-bold font-heading text-center text-3xl">営業時間や新メンバーなど様々な情報をお届け</h2>
 
@@ -96,7 +97,7 @@
             <a href="#"
                 class="inline-block text-xs text-white font-semibold leading-none rounded py-4 text-blue-500 border-solid bg-white border-blue-500 border-2 px-16 hover:text-white hover:bg-blue-500">もっと見る</a>
         </div>
-    </section>
+    </section> --}}
 
     <section class="mt-24">
         <div class="container mx-auto">
