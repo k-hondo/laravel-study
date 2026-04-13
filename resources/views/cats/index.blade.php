@@ -2,11 +2,16 @@
 @section('title', config('page_titles.cats'))
 
 @section('content')
-    <section class="bg-gray-100 pt-2">
-        <div class="container mx-auto">
-            <p class="text-left px-4 pt-2 text-gray-400"><a href="{{ route('index') }}"
-                    class="text-blue-600 hover:underline">{{ config('page_titles.home') }}</a><span
-                    class="px-2">&gt;</span>{{ config('page_titles.cats') }}</p>
+    <section class="relative pt-2 bg-cover bg-center" style="background-image: url('{{ asset('images/hero.jpg') }}');">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="container text-white mx-auto relative">
+            <p class="text-left px-4 pt-2 inline-block bg-black/50 backdrop-blur-sm rounded text-white">
+                <a href="{{ route('index') }}" class="text-orange-300 hover:underline">
+                    {{ config('page_titles.home') }}
+                </a>
+                <span class="px-2">&gt;</span>
+                {{ config('page_titles.cats') }}
+            </p>
             <p class="text-center pt-10 text-2xl">{{ config('page_titles.cats') }}</p>
             <h1 class="mt-2 text-4xl font-bold font-heading text-center h-32">この子達があなたを癒やしてくれます！</h1>
         </div>
@@ -27,7 +32,8 @@
                                         {{ $cat->breed }}({{ $cat->gender->label() }}{{ $cat->age }}さい)</p>
                                 </div>
                             </div>
-                            <p class="leading-loose text-blueGray-400 mb-5 whitespace-pre-line">{{ $cat->introduction }}</p>
+                            <p class="leading-loose text-blueGray-400 mb-5 whitespace-pre-line">{{ $cat->introduction }}
+                            </p>
                         </div>
                     </div>
                 @endforeach

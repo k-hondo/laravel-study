@@ -15,28 +15,81 @@
 <body class="antialiased bg-body text-body font-body flex flex-col min-h-screen">
 
     <!-- ▼▼▼▼共通ヘッダー▼▼▼▼　-->
-    <header>
+    <header class="bg-gradient-to-r from-amber-100 to-orange-100 border-b border-amber-200 shadow-sm">
         <div class="container px-4 mx-auto">
             <nav class="flex items-center justify-between py-6">
-                <a class="text-3xl font-semibold leading-none" href="{{ route('index') }}">ねこカフェららべる</a>
-                <ul class="hidden lg:flex ml-12 mr-auto space-x-12">
-                    <li><a class="text-sm {{ request()->routeIs('facilities') ? 'text-blue-500 font-bold' : 'text-blueGray-400' }} hover:text-blueGray-500"
-                            href="{{ route('facilities') }}">設備</a></li>
-                    <li><a class="text-sm {{ request()->routeIs('cats.index') ? 'text-blue-500 font-bold' : 'text-blueGray-400' }} hover:text-blueGray-500"
-                            href="{{ route('cats.index') }}">ねこちゃんたち</a></li>
-                    <li><a class="text-sm {{ request()->routeIs('blogs.index') ? 'text-blue-500 font-bold' : 'text-blueGray-400' }} hover:text-blueGray-500"
-                            href="{{ route('blogs.index') }}">ブログ</a></li>
-                    <li><a class="text-sm {{ request()->routeIs('menu') ? 'text-blue-500 font-bold' : 'text-blueGray-400' }} hover:text-blueGray-500"
-                            href="{{ route('menu') }}">メニュー</a></li>
-                    <li><a class="text-sm {{ request()->routeIs('faq') ? 'text-blue-500 font-bold' : 'text-blueGray-400' }} hover:text-blueGray-500"
-                            href="{{ route('faq') }}">よくあるご質問</a></li>
+
+                <!-- ロゴ -->
+                <a class="text-3xl font-semibold text-amber-900" href="{{ route('index') }}">
+                    ねこカフェららべる
+                </a>
+
+                <!-- メニュー -->
+                <ul class="hidden lg:flex ml-12 mr-auto space-x-10">
+
+                    <li>
+                        <a href="{{ route('facilities') }}"
+                            class="text-sm transition duration-200
+                        {{ request()->routeIs('facilities') ? 'text-orange-400 font-bold' : 'text-stone-500 hover:text-orange-400' }}">
+                            設備
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('cats.index') }}"
+                            class="text-sm transition duration-200
+                        {{ request()->routeIs('cats.index') ? 'text-orange-400 font-bold' : 'text-stone-500 hover:text-orange-400' }}">
+                            ねこちゃんたち
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('blogs.index') }}"
+                            class="text-sm transition duration-200
+                        {{ request()->routeIs('blogs.index') ? 'text-orange-400 font-bold' : 'text-stone-500 hover:text-orange-400' }}">
+                            ブログ
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('menu') }}"
+                            class="text-sm transition duration-200
+                        {{ request()->routeIs('menu') ? 'text-orange-400 font-bold' : 'text-stone-500 hover:text-orange-400' }}">
+                            メニュー
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('faq') }}"
+                            class="text-sm transition duration-200
+                        {{ request()->routeIs('faq') ? 'text-orange-400 font-bold' : 'text-stone-500 hover:text-orange-400' }}">
+                            よくあるご質問
+                        </a>
+                    </li>
+
                 </ul>
-                <div>
-                    <a class="mr-2 inline-block px-4 py-3 text-xs text-blue-500 hover:text-blue-600 leading-none border border-blue-200 hover:border-blue-300 rounded"
-                        href="{{ route('contact') }}">お問い合わせ</a>
-                    <a class="inline-block px-4 py-3 text-xs font-semibold leading-none bg-blue-500 hover:bg-blue-600 text-white rounded"
-                        href="{{ route('index') }}#access">アクセス</a>
+
+                <!-- ボタン -->
+                <div class="flex items-center">
+
+                    <!-- サブボタン -->
+                    <a href="{{ route('contact') }}"
+                        class="mr-2 px-4 py-2 text-xs text-amber-900 border border-amber-300 rounded
+                    hover:bg-amber-200 hover:shadow-md hover:-translate-y-0.5
+                    transition duration-200">
+                        お問い合わせ
+                    </a>
+
+                    <!-- メインボタン -->
+                    <a href="{{ route('index') }}#access"
+                        class="px-4 py-2 text-xs font-semibold bg-orange-400 text-white rounded
+                    hover:bg-orange-500 hover:shadow-lg hover:-translate-y-1
+                    transition duration-200">
+                        アクセス
+                    </a>
+
                 </div>
+
             </nav>
         </div>
     </header>

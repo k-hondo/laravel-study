@@ -2,13 +2,19 @@
 @section('title', config('page_titles.blogs') . '詳細')
 
 @section('content')
-    <section class="bg-gray-100 pt-2">
-        <div class="container mx-auto">
-            <p class="text-left px-4 pt-2 text-gray-400">
-                <a href="{{ route('index') }}" class="text-blue-600 hover:underline">{{ config('page_titles.home') }}</a>
-                </a><span class="px-2">&gt;</span>
-                <a href="{{ route('blogs.index') }}" class="text-blue-600 hover:underline">{{ config('page_titles.blogs') }}
-                </a><span class="px-2">&gt;</span>{{ $blog->title }}
+    <section class="relative pt-2 bg-cover bg-center" style="background-image: url('{{ asset('images/hero.jpg') }}');">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="container text-white mx-auto relative">
+            <p class="text-left px-4 pt-2 inline-block bg-black/50 backdrop-blur-sm rounded text-white">
+                <a href="{{ route('index') }}" class="text-orange-300 hover:underline">
+                    {{ config('page_titles.home') }}
+                </a>
+                <span class="px-2">&gt;</span>
+                <a href="{{ route('blogs.index') }}" class="text-orange-300 hover:underline">
+                    {{ config('page_titles.blogs') }}
+                </a>
+                <span class="px-2">&gt;</span>
+                {{ $blog->title }}
             </p>
             <h1 class="mt-2 text-4xl font-bold font-heading h-40 text-center p-12">{{ $blog->title }}</h1>
         </div>
@@ -140,7 +146,7 @@
             </div>
             <div class="mt-8 text-center">
                 <a href="#"
-                    class="inline-block text-xs text-white font-semibold leading-none rounded py-4 text-blue-500 border-solid bg-white border-blue-500 border-2 px-16 hover:text-white hover:bg-blue-500">もっと見る</a>
+                    class="inline-block text-xs text-white font-semibold leading-none rounded py-4 text-orange-500 border-solid bg-white border-orange-500 border-2 px-16 hover:text-white hover:bg-orange-500">もっと見る</a>
             </div>
         </div>
     </section>

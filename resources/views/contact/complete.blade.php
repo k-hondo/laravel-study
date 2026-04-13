@@ -2,11 +2,16 @@
 @section('title', config('page_titles.contact') . '完了')
 
 @section('content')
-    <section class="bg-gray-100 pt-2">
-        <div class="container mx-auto">
-            <p class="text-left px-4 pt-2 text-gray-400"><a href="{{ route('index') }}"
-                    class="text-blue-600 hover:underline">{{ config('page_titles.home') }}</a><span
-                    class="px-2">&gt;</span>{{ config('page_titles.contact') }}</p>
+    <section class="relative pt-2 bg-cover bg-center" style="background-image: url('{{ asset('images/hero.jpg') }}');">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="container text-white mx-auto relative">
+            <p class="text-left px-4 pt-2 inline-block bg-black/50 backdrop-blur-sm rounded text-white">
+                <a href="{{ route('index') }}" class="text-orange-300 hover:underline">
+                    {{ config('page_titles.home') }}
+                </a>
+                <span class="px-2">&gt;</span>
+                {{ config('page_titles.contact') }}
+            </p>
             <h1 class="mt-2 text-4xl font-bold font-heading h-40 text-center p-12">{{ config('page_titles.contact') }}が完了しました
             </h1>
         </div>
@@ -23,7 +28,7 @@
                 大変お手数ですが、再度お問い合わせの手続きをお願い致します。
             </p>
 
-            <p class="pt-10"><a href="{{ route('index') }}" class="text-blue-600 hover:underline">トップページ</a>に戻る</p>
+            <p class="pt-10"><a href="{{ route('index') }}" class="text-orange-600 hover:underline">トップページ</a>に戻る</p>
         </div>
     </section>
 @endsection
