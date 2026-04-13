@@ -11,13 +11,28 @@
 
 ## 🌐 デモ
 
-#### フロントページ
+※初回表示に数秒かかる場合がございます。もしページが表示されない場合は、お手数ですがページリロードをお願いいたします。
+
+### フロントページ
 
 https://hk-cat-cafe.onrender.com
 
-#### 管理画面
+#### 📸 スクリーンショット
+![トップページ](docs/images/top.png)
+
+### 管理画面
 
 https://hk-cat-cafe.onrender.com/admin/login
+
+#### 🔐 管理画面ログイン情報
+
+```text
+email: k_taro@example.com
+password: taropass
+```
+
+#### 📸 スクリーンショット
+![管理画面](docs/images/admin.png)
 
 ---
 
@@ -78,25 +93,24 @@ https://hk-cat-cafe.onrender.com/admin/login
 ## 🚀 セットアップ方法
 
 ```bash
+# Git
 git clone https://github.com/k-hondo/laravel-study.git
 cd k-hondo/laravel-study.git
 
+# 環境設定ファイル作成
 cp .env.example .env
-./vendor/bin/sail up -d
 
-./vendor/bin/sail artisan key:generate
+# 起動（※事前にDockerをインストールし、Docker起動が必要）
+./vendor/bin/sail up -d
+# 停止
+./vendor/bin/sail down
+
+# データベースの設定(マイグレーション)
 ./vendor/bin/sail artisan migrate
+
+# ダミーデータ登録（シーディング）
 ./vendor/bin/sail artisan db:seed
 
-```
-
----
-
-## 🔐 ログイン情報（管理画面）
-
-```text
-email: k_taro@example.com
-password: taropass
 ```
 
 ---
@@ -109,7 +123,7 @@ password: taropass
 - 画像を活用した**来店促進デザイン**
 - Mailpitによる**メール開発環境構築**
 - blogsとusersのリレーション追加による**実務的設計改善**
-- select項目のEnum管理（例：app/Enums/Gender.php）
+- select項目をEnumで管理し、保守性を考慮（例：app/Enums/Gender.php）
 - デプロイ環境の構築（Render）
 
 ---
@@ -137,7 +151,7 @@ app/
 resources/
 routes/
 database/
-docs/ ← 設計資料
+docs/
 ```
 
 ---
