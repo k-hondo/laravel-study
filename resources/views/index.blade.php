@@ -2,8 +2,9 @@
 @section('title', config('page_titles.home'))
 
 @section('content')
-    <section class="bg-gray-100">
-        <div class="container mx-auto py-40 relative">
+    <section class="relative bg-cover bg-center" style="background-image: url('{{ asset('images/hero.jpg') }}');">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="container text-white h-full mx-auto py-40 relative">
             <h1 class="mt-2 text-4xl font-bold font-heading text-center">ねこに癒やしてもらいませんか？</h1>
             <p class="text-center pt-5">ねこの可愛い仕草、自由気ままな雰囲気を見ることはもちろん、<br>
                 ただ同じ空間にいるだけでも癒やされます<br>
@@ -27,7 +28,7 @@
                         <img class="w-20 h-20 object-cover rounded-full" src="/images/index/foliage-plant.jpg"
                             alt="">
                         <div class="ml-4 w-56">
-                            <h3 class="mb-1 text-2xl font-heading text-left text-blue-500">清潔な環境</h3>
+                            <h3 class="mb-1 text-2xl font-heading text-left text-orange-500">清潔な環境</h3>
                             <p class="text-left text-gray-500 text-sm">2022年2月にリニューアル!! <br>24時間常に換気<br> 最新型空気清浄機を設置</p>
                         </div>
                     </div>
@@ -39,7 +40,7 @@
                     <div class="flex py-10 px-6">
                         <img class="w-20 h-20 object-cover rounded-full" src="/images/index/sanitizer.jpg" alt="">
                         <div class="ml-4 w-56">
-                            <h3 class="mb-1 text-2xl font-heading text-left text-blue-500">衛生管理</h3>
+                            <h3 class="mb-1 text-2xl font-heading text-left text-orange-500">衛生管理</h3>
                             <p class="text-left text-gray-500 text-sm">店員・ゲストの検温<br> マスクの常時着用<br> 1時間毎に全ての設備を消毒</p>
                         </div>
                     </div>
@@ -52,7 +53,7 @@
                         <img class="w-20 h-20 object-cover rounded-full" src="/images/index/health-check.jpg"
                             alt="">
                         <div class="ml-4 w-56">
-                            <h3 class="mb-1 text-2xl font-heading text-left text-blue-500">ねこの体調管理</h3>
+                            <h3 class="mb-1 text-2xl font-heading text-left text-orange-500">ねこの体調管理</h3>
                             <p class="text-left text-gray-500 text-sm">毎日の検温<br> ワクチン接種済み<br> 定期的な検診</p>
                         </div>
                     </div>
@@ -70,32 +71,32 @@
             <li class="flex py-4 border-t border-b">
                 <p class="font-bold w-40">2022. 3. 4（水）</p>
                 <p class="bg-gray-100 text-gray-400 px-3">カテゴリ</p><a href="#"
-                    class="ml-4 text-blue-500">キャットフードなどの販売をはじめました</a>
+                    class="ml-4 text-orange-500">キャットフードなどの販売をはじめました</a>
             </li>
             <li class="flex py-4 border-b">
                 <p class="font-bold w-40">2022. 2. 14（水）</p>
                 <p class="bg-gray-100 text-gray-400 px-3">カテゴリ</p><a href="#"
-                    class="ml-4 text-blue-500">『ノア』ちゃん新しく加入しました！</a>
+                    class="ml-4 text-orange-500">『ノア』ちゃん新しく加入しました！</a>
             </li>
             <li class="flex py-4 border-b">
                 <p class="font-bold w-40">2022. 3. 4（水）</p>
                 <p class="bg-gray-100 text-gray-400 px-3">カテゴリ</p><a href="#"
-                    class="ml-4 text-blue-500">貸し切りご予約のため3/20は12:00~の営業となります</a>
+                    class="ml-4 text-orange-500">貸し切りご予約のため3/20は12:00~の営業となります</a>
             </li>
             <li class="flex py-4 border-b">
                 <p class="font-bold w-40">2022. 3. 4（水）</p>
                 <p class="bg-gray-100 text-gray-400 px-3">カテゴリ</p><a href="#"
-                    class="ml-4 text-blue-500">『●●●●』に、当店が紹介されました</a>
+                    class="ml-4 text-orange-500">『●●●●』に、当店が紹介されました</a>
             </li>
             <li class="flex py-4 border-b">
                 <p class="font-bold w-40">2022. 3. 4（水）</p>
                 <p class="bg-gray-100 text-gray-400 px-3">カテゴリ</p><a href="#"
-                    class="ml-4 text-blue-500">サイト開設しました！！</a>
+                    class="ml-4 text-orange-500">サイト開設しました！！</a>
             </li>
         </ul>
         <div class="mt-8 text-center">
             <a href="#"
-                class="inline-block text-xs text-white font-semibold leading-none rounded py-4 text-blue-500 border-solid bg-white border-blue-500 border-2 px-16 hover:text-white hover:bg-blue-500">もっと見る</a>
+                class="inline-block text-xs text-white font-semibold leading-none rounded py-4 text-orange-500 border-solid bg-white border-orange-500 border-2 px-16 hover:text-white hover:bg-orange-500">もっと見る</a>
         </div>
     </section> --}}
 
@@ -156,7 +157,7 @@
 
             <div class="mt-8 text-center">
                 <a href="{{ route('blogs.index') }}"
-                    class="inline-block text-xs text-white font-semibold leading-none rounded py-4 text-blue-500 border-solid bg-white border-blue-500 border-2 px-16 hover:text-white hover:bg-blue-500">もっと見る</a>
+                    class="inline-block text-xs text-white font-semibold leading-none rounded py-4 text-orange-500 border-solid bg-white border-orange-500 border-2 px-16 hover:text-white hover:bg-orange-500">もっと見る</a>
             </div>
         </div>
     </section>
@@ -189,11 +190,11 @@
         <div class="flex mx-auto bg-white py-4 mt-10 md:w-192">
             <div class="text-left mx-auto">
                 <p class="text-lg">なにかあればお気軽にお問い合わせください！</p>
-                <p><a href="#" class="text-blue-600 hover:underline">よくあるご質問</a>もご用意しています</p>
+                <p><a href="#" class="text-orange-600 hover:underline">よくあるご質問</a>もご用意しています</p>
             </div>
             <div class="mx-auto">
                 <a href="/contact"
-                    class="inline-block text-xs text-white font-semibold leading-none rounded py-4 text-blue-700 border-solid bg-white border-blue-700 border-2 px-16 hover:text-white hover:bg-blue-700">お問い合わせ</a>
+                    class="inline-block text-xs text-white font-semibold leading-none rounded py-4 text-orange-700 border-solid bg-white border-orange-700 border-2 px-16 hover:text-white hover:bg-orange-700">お問い合わせ</a>
             </div>
         </div>
     </section>
