@@ -31,29 +31,19 @@ services:
         value: pgsql
 
       - key: DB_HOST
-        fromDatabase:
-          name: hk-cat-cafe-db
-          property: host
+        value: db.zxkhihwsycjtbsyoyvqf.supabase.co
 
       - key: DB_PORT
-        fromDatabase:
-          name: hk-cat-cafe-db
-          property: port
+        value: 5432
 
       - key: DB_DATABASE
-        fromDatabase:
-          name: hk-cat-cafe-db
-          property: database
+        value: postgres
 
       - key: DB_USERNAME
-        fromDatabase:
-          name: hk-cat-cafe-db
-          property: user
+        value: postgres
 
       - key: DB_PASSWORD
-        fromDatabase:
-          name: hk-cat-cafe-db
-          property: password
+        sync: false
 
       # メール（本番はログ出力）
       - key: MAIL_MAILER
